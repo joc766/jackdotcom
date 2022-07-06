@@ -13,17 +13,6 @@
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
 .App-link {
   color: #61dafb;
 }
@@ -36,3 +25,35 @@
     transform: rotate(360deg);
   }
 }
+
+.Navbar {
+  background-color: #1c202a;
+  display: flex;
+  /* position: fixed; */
+  justify-content: center;
+  color: white;
+  position: fixed;
+  top: 0;
+}
+
+.Nav-links {
+  display: flex;
+  flex: 1;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 5%;
+}
+
+.Nav-title {
+  display: flex;
+  flex: 1;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 5%
+}
+
+.Nav-link-option {
+  display: flex;
+  margin: 2%;
+}
+
