@@ -1,36 +1,37 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { ThemeProvider } from 'styled-components';
 
-import Home from './components/Home'
+import GlobalStyles from './components/styles/Global';
+import Colors from './components/styles/colors.json';
+import Home from './components/Home';
+
+
+const theme = {
+  colors: {
+    background: 'black',
+    primary: Colors.smoky_black,
+    secondary: Colors.baby_blue,
+    tertiary: 'white',
+    white: "white",
+    greyish: Colors.greyish,
+    baby_blue: Colors.baby_blue,
+  },
+  fonts: {
+    primary: "Arial",
+    from_ojieame: "Gtwalsheimprotrial",
+    sans_serif: "sans-serif",
+  }
+}
 
 class App extends React.Component {
 
-  constructor(props) {
-    super(props)
-  }
-
-  handleScroll = (e) => {
-    console.log(window.scrollY)
-  }
-
 
   render() {
-    window.addEventListener('scroll', this.handleScroll)
     return (
-      <div className="App">
-        <div className="Navbar" style={{translate: [{translateY: window.scrollY}]}}>
-            <div className="Nav-title">
-                <h2>Jack.</h2>
-            </div>
-            <div className="Nav-links">
-                <p className="Nav-link-option">Home</p>
-                <p className="Nav-link-option">About</p>
-                <p className="Nav-link-option">Other</p>
-            </div>
-        </div>
+      <ThemeProvider theme={theme}>
+        <GlobalStyles/>
         <Home/>
-      </div>
+      </ThemeProvider>
     );
   }
 }
