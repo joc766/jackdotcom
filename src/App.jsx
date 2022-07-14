@@ -4,6 +4,7 @@ import { ThemeProvider } from 'styled-components';
 import GlobalStyles from './components/styles/Global';
 import Colors from './components/styles/colors.json';
 import Home from './components/Home';
+import { getViewMode } from './utils';
 
 
 const theme = {
@@ -24,13 +25,36 @@ const theme = {
 }
 
 class App extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      viewMode: getViewMode(window.innerWidth),
+    }
+  }
+
+  componentDidMount() {
+    window.addEventListener('resize', this.handleResize)
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.handleResize)
+  }
+
+  handleResize = () => {
+    const viewMode = getViewMode(window.innerWidth)
+    if (viewMode !== this.state.viewMode) {
+      this.setState({
+        viewMode: viewMode
+      })
+    }
+  }
 
 
   render() {
     return (
       <ThemeProvider theme={theme}>
         <GlobalStyles/>
-        <Home/>
+        <Home viewMode={this.state.viewMode}/>
       </ThemeProvider>
     );
   }

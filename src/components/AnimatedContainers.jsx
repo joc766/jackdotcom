@@ -2,6 +2,8 @@ import React from 'react';
 import { useInView } from 'react-intersection-observer';
 
 import { AnimatedImg, StyledInViewAnimContainer } from './styles/Container.styled';
+import { AnimCustomText } from "./styles/Paragraph.styled";
+
 
 export const InViewAnimContainer = (props) => {
     const { ref, inView } = useInView({
@@ -15,6 +17,18 @@ export const InViewAnimContainer = (props) => {
         </StyledInViewAnimContainer>
     )
 
+}
+
+export const InViewAnimText = (props) => {
+    const { ref, inView } = useInView({
+        threshold: 0.1,
+        triggerOnce: true,
+    });
+    return(
+        <AnimCustomText {...props} ref={ref} inView={inView}>
+            {props.children}
+        </AnimCustomText>
+    )
 }
 
 export const InViewAnimImage = (props) => {

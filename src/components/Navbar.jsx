@@ -1,9 +1,5 @@
-import styled from 'styled-components';
-
-import { Nav, StyledNavbar, StyledNavHeading, StyledNavOption, StyledNavLogo, LeftSection, RightSection, ExtraNavContainer } from "./styles/Navbar.styled";
-import { StyledContainer, StyledContentContainer } from './styles/Container.styled';
-import AnimatedGradientText from "./GradientText";
-import Signature from '../images/CorrectJOCSig.png';
+import { Nav, StyledNavOption, StyledNavLogo, ExtraNavContainer } from "./styles/Navbar.styled";
+import { StyledContentContainer } from './styles/Container.styled';
 import JOCLogo from '../images/JOCLogo.png';
 import { AiFillGithub, AiFillLinkedin, AiFillInstagram } from 'react-icons/ai';
 
@@ -24,14 +20,6 @@ const Navbar = (props) => {
                     </StyledNavOption>
                 </ExtraNavContainer>
             </StyledContentContainer>
-            {/* <RightSection>
-                <StyledNavOption href="https://www.linkedin.com/in/jack-o-connor-b26568196/" target="_blank" rel="noreferrer noopener">
-                    LinkedIn
-                </StyledNavOption>
-                <StyledNavOption href="https://github.com/joc766" target="_blank" rel="noreferrer noopener">
-                    GitHub
-                </StyledNavOption>
-            </RightSection> */}
         </Nav>
     )
 
