@@ -5,7 +5,7 @@ const GlobalStyles = createGlobalStyle`
     body {
         background-color: ${ ({theme}) => theme.colors.background };
         color: ${ ({theme}) => theme.colors.secondary };
-        font-family: Arial, Helvetica, sans-serif;
+        font-family: ${ ({theme}) => theme.fonts.primary };
     }
 
     a {

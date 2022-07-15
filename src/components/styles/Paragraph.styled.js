@@ -7,7 +7,7 @@ export const Paragraph = styled.p`
     font-family: ${ ({theme}) => theme.fonts.sans_serif };
     font-size: 24px;
     line-height: 24px;
-    color: ${ ({theme}) => theme.colors.white };
+    color: ${ ({theme}) => theme.colors.secondary };
     text-align: start;
     margin: 0;
 `
@@ -16,13 +16,13 @@ export const CustomText = styled(Paragraph).attrs(props => ({
     size: props.size,
     lineHeight: props.lineHeight ? props.lineHeight : props.size,
     fontWeight: props.weight,
-    color: props.color ? props.color : 'white',
+    color: props.color ? props.color : props.theme.colors.primary,
     textAlign: props.textAlign ? props.textAlign : 'left',
 }))`
     font-size: ${props => props.size}px; 
     line-height: ${props => props.lineHeight}px;
     font-weight: ${props => props.fontWeight};
-    color: ${props => props.color};
+    color: ${props => props.color };
     text-align: ${props => props.textAlign};
 `
 
@@ -48,7 +48,7 @@ export const Background = styled.p.attrs(props => ({
     font-family: ${ ({theme}) => theme.fonts.sans_serif };
     font-size: 80px;
     line-height: 80px;
-    color: ${ ({theme}) => theme.colors.greyish};
+    color: ${ ({theme}) => theme.colors.faded};
     margin: 0;
     font-weight: 600;
 `

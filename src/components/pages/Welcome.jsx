@@ -5,14 +5,23 @@ import { InViewAnimContainer, InViewAnimImage, InViewAnimText } from '../Animate
 import { CustomText } from "../styles/Paragraph.styled";
 import GradientText from '../GradientText';
 import JackSolo from '../../images/JackSolo.png';
+import JackSolo2 from '../../images/JackSolo2.png';
 import Colors from '../styles/colors.json';
+import { withTheme } from "styled-components";
 
 
-export default class Welcome extends React.PureComponent {
+class Welcome extends React.PureComponent {
 
     render() {
+        const theme = this.props.theme
+
         const mobile = this.props.viewMode === "mobile" ? true : false;
         const desktop = this.props.viewMode === "desktop" ? true : false;
+
+        const imgInfo = {
+            src: theme.id === "light" ? JackSolo2 : JackSolo,
+            opacity: theme.id === "light" ? 0.90 : 0.67
+        }
         
         return ( 
             <HorizontalContainer>
@@ -26,10 +35,10 @@ export default class Welcome extends React.PureComponent {
                     { desktop
                     ?
                     <BackgroundContainer>
-                        <CustomText size={80} color={Colors.smoky_black}>
+                        <CustomText size={80} color={theme.colors.faded}>
                             Developer +
                         </CustomText>
-                        <CustomText size={80} color={Colors.greyish}>
+                        <CustomText size={80} color={theme.colors.faded}>
                             Student
                         </CustomText>
                     </BackgroundContainer>
@@ -38,7 +47,7 @@ export default class Welcome extends React.PureComponent {
                     }
                     {/* This needs to be cleaned up eventually */}
                     <div style={{zIndex: 200, marginTop: '10%', maxWidth: '400px'}}>
-                        <InViewAnimText size={mobile ? 14 : 18} weight={500} color={'#808080'} delay={0.5} lineHeight={mobile ? 20 : 28} textAlign='justify'>
+                        <InViewAnimText size={mobile ? 14 : 18} weight={500} color={theme.colors.secondary} delay={0.5} lineHeight={mobile ? 20 : 28} textAlign='justify'>
                             I'm a senior C.S. major at Yale, first-generation college student and American, Division-1 varsity athlete and software developer with a passion for learning and using that knowledge to create clean, elegant solutions to problems.
                         </InViewAnimText>
                     </div>
@@ -49,10 +58,12 @@ export default class Welcome extends React.PureComponent {
                     </InViewAnimContainer>
                 </LeftSubSection>
                 <RightSubSection position={mobile ? 'absolute' : 'relative'}>
-                    <InViewAnimImage src={JackSolo} height={mobile ? 400 : 525} opacity={0.67}/>
+                    <InViewAnimImage src={imgInfo.src} height={mobile ? 400 : 525} opacity={imgInfo.opacity}/>
                 </RightSubSection>
             </HorizontalContainer>
         )
     }
 
 }
+
+export default withTheme(Welcome);
