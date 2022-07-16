@@ -15,7 +15,7 @@ export default class HomePage extends React.PureComponent {
                 <Navbar viewMode={this.props.viewMode}/>
                 <MainSection>
                     <Welcome viewMode={this.props.viewMode}/>
-                    <AboutMe viewMode={this.props.viewMode}/>
+                    {/* <AboutMe viewMode={this.props.viewMode}/> */}
                 </MainSection>
             </AppContainer>
         )

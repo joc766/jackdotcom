@@ -9,7 +9,7 @@ export default class AboutMe extends React.PureComponent {
 
         return (
             <>
-            <h1 style={{fontSize: "40px", color: "white", marginBlockStart: "100px"}}>About Me</h1>
+            <h1 style={{fontSize: "40px", marginBlockStart: "100px"}}>About Me</h1>
             <HorizontalContainer>
                 <SubSection height={"800px"}>
 
