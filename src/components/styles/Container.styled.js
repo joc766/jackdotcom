@@ -12,6 +12,13 @@ export const StyledContainer = styled.div`
     max-width: 940px;
 `
 
+export const BackgroundContainer = styled.div`
+    position: absolute;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+`
+
 export const StyledInViewAnimContainer = styled.div`
     transition: opacity 4s, transform 2s;
     transition-delay: ${props => props.delay ? props.delay : 0}s;
@@ -59,15 +66,14 @@ export const SubSection = styled.div`
     z-index: 200;
 `
 
-export const RightSubSection = styled.div`
+export const RightSubSection = styled.div.attrs(props => ({
+    paddingTop: props.position === 'absolute' ? '0px' : '50px',
+    zIndex: props.position === 'absolute' ? 200 : 100,
+}))`
     position: ${props => props.position};
-    padding-top: ${props => props.position === 'absolute' ? '0px' : '50px'};
-`
-
-export const BigGradientText = styled(AnimatedGradientText)`
-    font-size: 80px;
-    margin: 0;
-`
+    padding-top: ${props => props.paddingTop };
+    z-index: ${props => props.zIndex};
+`;
 
 export const AnimatedImg = styled.img`
     transition: all 2s ease;
@@ -82,21 +88,12 @@ export const LeftSubSection = styled(SubSection).attrs(props => ({
     max-width: 525px; 
     padding-top: ${props => props.isSolo ? 273 : 170}px;
     align-items: ${props => props.isSolo ? 'center' : 'flex-start'};
+    z-index: 300;
 `
 
-export const LeftSubSectionWithAnim = styled(LeftSubSection)`
-    transition: opacity 4s, transform 2s;
-    opacity: ${props => props.inView ? 1 : 0};
-    transform: translateY(${props => props.inView ? '0' : '50px'});
-`
 
 export const AppContainer = styled.div`
     display: flex;
     align-items: flex-start;
     justify-content: center;
-`
-
-export const FadeInContentContainer = styled(StyledContainer)`
-    transition: opacity 5s;
-    opacity: ${props => props.inView ? 1 : 0};
 `

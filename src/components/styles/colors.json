@@ -1,8 +1,13 @@
 { 
-    "greyish": "#212121 ",
     "smoky_black": "#1c110aff",
     "medium_champagne": "#e4d6a7ff",
     "sonic_silver": "#736f72ff",
     "baby_blue": "#84d2f6ff",
-    "bittersweet": "#ff6b6bff"
+    "bittersweet": "#ff6b6bff",
+    "dark_grey": "#131313",
+    "light_grey": "#808080",
+    "lighter_grey": "#EEEEEE",
+    "black": "black",
+    "white": "white",
+    "offwhite": "#F5F5F5"
 }

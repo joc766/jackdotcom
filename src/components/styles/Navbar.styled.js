@@ -1,6 +1,9 @@
 import styled from 'styled-components';
+import { useTheme } from 'styled-components';
 
-export const Nav = styled.div`
+export const Nav = styled.div.attrs(props => ({
+    bgImage: props.theme.id === "dark" ? "linear-gradient(180deg, #000, rgba(0, 0, 0, 0.8) 59%, transparent)" : "linear-gradient(180deg, #FFF, rgba(255, 255, 255, 0.8) 59%, transparent)",
+}))`
     position: fixed;
     display: flex;
     align-items: center;
@@ -9,7 +12,9 @@ export const Nav = styled.div`
     width: 100%;
     height: 100px;
     max-height: 100px;
-    z-index: 200;
+    z-index: 500;
+    background-color: 'white';
+    background-image: ${props => props.bgImage};
 `
 
 export const ExtraNavContainer = styled.div`
@@ -22,47 +27,25 @@ export const ExtraNavContainer = styled.div`
     align-items: center;
 `
 
-export const StyledNavbar = styled.div`
-    position: fixed;
-    top: 0px;
-    height: 100px;
-    max-height: 100px;
-    width: 100%;
-    z-index: 200;
-    overflow: hidden;
-    display: flex;
-    justify-content: space-around;
-    background-image: linear-gradient(180deg, #000, rgba(0, 0, 0, 0.8) 59%, transparent);
-`
-
-export const LeftSection = styled.div`
-    flex: 1;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    padding-left: 30px;
-`
-
-export const RightSection = styled.div`
-    flex: 1;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    padding-right: 5%;
-`
-
-export const StyledNavHeading = styled.a`
-    font-size: 30px;
-    font-weight: bold;
-`
-
 export const StyledNavOption = styled.a`
     font-size: 16px;
     font-weight: bold;
     margin: 0 3%;
     text-decoration: none;
-    color: ${ ({theme}) => theme.colors.tertiary };
+    color: ${ ({theme}) => theme.colors.primary };
 `
 
-export const StyledNavLogo = styled.img`
-`
+export const NavLogo = (props) => {
+    const theme = useTheme()
+    let Component = undefined;
+    if (theme.logo.inverse){
+        Component = styled.img`
+            filter: invert(100%);
+        `
+    }
+    else {
+        Component = styled.img``;
+    }
+    
+    return (<Component {...props} >{props.children}</Component>)
+}

@@ -1,17 +1,19 @@
-import styled from 'styled-components';
-
-import { Nav, StyledNavbar, StyledNavHeading, StyledNavOption, StyledNavLogo, LeftSection, RightSection, ExtraNavContainer } from "./styles/Navbar.styled";
-import { StyledContainer, StyledContentContainer } from './styles/Container.styled';
-import AnimatedGradientText from "./GradientText";
-import Signature from '../images/CorrectJOCSig.png';
-import JOCLogo from '../images/JOCLogo.png';
+import { useContext } from 'react';
 import { AiFillGithub, AiFillLinkedin, AiFillInstagram } from 'react-icons/ai';
+import { HiSwitchHorizontal } from 'react-icons/hi';
+
+import { Nav, StyledNavOption, ExtraNavContainer, NavLogo } from "./styles/Navbar.styled";
+import { StyledContentContainer } from './styles/Container.styled';
+import JOCLogo from '../images/JOCLogo.png';
+import {ToggleThemeContext} from '../App';
 
 const Navbar = (props) => {
+    const context = useContext(ToggleThemeContext);
+    console.log(context)
     return(
         <Nav>
             <StyledContentContainer>
-                <StyledNavLogo src={JOCLogo} width="50" height="50"/>
+                <NavLogo src={JOCLogo} width="50" height="50"/>
                 <ExtraNavContainer>
                     <StyledNavOption href="https://github.com/joc766" target="_blank" rel="noreferrer noopener">
                         <AiFillGithub style={{fontSize: '24px'}}/>
@@ -22,16 +24,11 @@ const Navbar = (props) => {
                     <StyledNavOption href="https://www.instagram.com/jack.o.connor/" target="_blank" rel="noreferrer noopener">
                         <AiFillInstagram style={{fontSize: '24px'}}/>
                     </StyledNavOption>
+                    {/* <StyledNavOption onClick={() => {console.log("HERE"); context.toggleTheme()}}>
+                        <HiSwitchHorizontal style={{fontSize: '24px'}}/>
+                    </StyledNavOption> */}
                 </ExtraNavContainer>
             </StyledContentContainer>
-            {/* <RightSection>
-                <StyledNavOption href="https://www.linkedin.com/in/jack-o-connor-b26568196/" target="_blank" rel="noreferrer noopener">
-                    LinkedIn
-                </StyledNavOption>
-                <StyledNavOption href="https://github.com/joc766" target="_blank" rel="noreferrer noopener">
-                    GitHub
-                </StyledNavOption>
-            </RightSection> */}
         </Nav>
     )
 
