@@ -24,9 +24,9 @@ const Navbar = (props) => {
                     <StyledNavOption href="https://www.instagram.com/jack.o.connor/" target="_blank" rel="noreferrer noopener">
                         <AiFillInstagram style={{fontSize: '24px'}}/>
                     </StyledNavOption>
-                    {/* <StyledNavOption onClick={() => {console.log("HERE"); context.toggleTheme()}}>
+                    <StyledNavOption onClick={() => {console.log("HERE"); context.toggleTheme()}}>
                         <HiSwitchHorizontal style={{fontSize: '24px'}}/>
-                    </StyledNavOption> */}
+                    </StyledNavOption>
                 </ExtraNavContainer>
             </StyledContentContainer>
         </Nav>
